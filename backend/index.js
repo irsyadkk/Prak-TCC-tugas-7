@@ -10,7 +10,7 @@ app.set("view engine", "ejs");
 dotenv.config();
 
 app.use(cookieParser());
-app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+app.use(cors({credentials:true, origin:'https://frontend-notes-176-dot-xenon-axe-450704-n3.uc.r.appspot.com/'}));
 app.use(express.json());
 app.get("/", (req, res) => res.render("index"));
 app.use(noteRoute);
