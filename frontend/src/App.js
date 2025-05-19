@@ -6,26 +6,33 @@ import DetailNote from "./components/DetailNote";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import React from "react";
-import { AuthProvider } from "./auth/AuthProvider";
+import { AuthProvider, useAuthContext } from "./auth/AuthProvider";
 
 function App() {
-    const isAuthenticated = !!localStorage.getItem("token");
-
-    return (
-      <AuthProvider>
+  return (
+    <AuthProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/notes" element={isAuthenticated ? <NoteList /> : <Navigate to="/signin" />} />
-          <Route path="/notes/add" element={isAuthenticated ? <AddNote /> : <Navigate to="/signin" />} />
-          <Route path="/edit/:id" element={isAuthenticated ? <EditNote /> : <Navigate to="/signin" />} />
-          <Route path="/notes/detail/:id" element={isAuthenticated ? <DetailNote /> : <Navigate to="/signin" />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
-      </AuthProvider>
-    );
-  }
+    </AuthProvider>
+  );
+}
+
+function AppRoutes() {
+  const { accessToken } = useAuthContext();
+  const isAuthenticated = !!accessToken; // Cek jika ada accessToken
+
+  return (
+    <Routes>
+      <Route path="/" element={<SignIn />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/notes" element={isAuthenticated ? <NoteList /> : <Navigate to="/signin" />} />
+      <Route path="/notes/add" element={isAuthenticated ? <AddNote /> : <Navigate to="/signin" />} />
+      <Route path="/edit/:id" element={isAuthenticated ? <EditNote /> : <Navigate to="/signin" />} />
+      <Route path="/notes/detail/:id" element={isAuthenticated ? <DetailNote /> : <Navigate to="/signin" />} />
+    </Routes>
+  );
+}
 
 export default App;

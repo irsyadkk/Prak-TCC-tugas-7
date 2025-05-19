@@ -16,9 +16,7 @@ const SignIn = () => {
     console.log("Login with", { email, password });
     try {
       const result = await login(email, password);
-      console.log(result);
       if (result) {
-        console.log("to /notes");
         navigate("/notes", {state: {email:email}});
       } else {
         alert("Email atau Password Salah !");
