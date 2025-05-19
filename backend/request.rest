@@ -1,18 +1,40 @@
 GET http://localhost:5000/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImppbSIsImVtYWlsIjoiamltQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMTlUMDU6MzQ6MDQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMTlUMDU6MzQ6MDQuMDAwWiIsImlhdCI6MTc0NzYzMjg1MywiZXhwIjoxNzQ3Njc2MDUzfQ.wuJNQxtMh4Gt7d5cCmU91hiRu8RdYzHjL9DY26SR6Wg
 
 ###
 
 GET http://localhost:5000/notes/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6ImppbSIsImVtYWlsIjoiamltQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMThUMTI6NTQ6NTguMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMThUMTI6NTQ6NTguMDAwWiIsImlhdCI6MTc0NzU3MjkxOSwiZXhwIjoxNzQ3NjE2MTE5fQ.PeSCtGOzUgLZo058BPUQWmvM1MYQo-odLJC2Yar_M20
 
 ###
 
-POST http://localhost:5000/notes
+GET http://localhost:5000/users/jim@gmail.com
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImppbSIsImVtYWlsIjoiamltQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjUtMDUtMTlUMDU6MzQ6MDQuMDAwWiIsInVwZGF0ZWRBdCI6IjIwMjUtMDUtMTlUMDY6MDQ6MjYuMDAwWiIsImlhdCI6MTc0NzYzNDczMiwiZXhwIjoxNzQ3Njc3OTMyfQ.x_o85l2AP3KCMBX7675DSQcD1sx2an4T6b_wZjh2zbI
+
+###
+
+POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "title": "SECRET",
-    "content": "WHAT ARE YOU LOOKING FOR ???"
+    "name": "jim",
+    "email": "jim@gmail.com",
+    "password": "jim"
 }
+
+###
+
+POST http://localhost:5000/login 
+Content-Type: application/json
+
+{
+"email": "jim@gmail.com",
+"password": "jim"
+}
+
+###
+
+DELETE http://localhost:5000/logout
 
 ###
 

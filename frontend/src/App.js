@@ -5,7 +5,6 @@ import EditNote from "./components/EditNote";
 import DetailNote from "./components/DetailNote";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import React from "react";
 import { AuthProvider, useAuthContext } from "./auth/AuthProvider";
 
 function App() {
@@ -20,7 +19,7 @@ function App() {
 
 function AppRoutes() {
   const { accessToken } = useAuthContext();
-  const isAuthenticated = !!accessToken; // Cek jika ada accessToken
+  const isAuthenticated = !!accessToken;
 
   return (
     <Routes>
