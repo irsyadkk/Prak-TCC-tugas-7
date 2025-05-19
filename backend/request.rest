@@ -1,0 +1,29 @@
+GET http://localhost:5000/notes
+
+###
+
+GET http://localhost:5000/notes/3
+
+###
+
+POST http://localhost:5000/notes
+Content-Type: application/json
+
+{
+    "title": "SECRET",
+    "content": "WHAT ARE YOU LOOKING FOR ???"
+}
+
+###
+
+PATCH http://localhost:5000/notes/1
+Content-Type: application/json
+
+{
+    "title": "bjir2",
+    "content": "ME"
+}
+
+###
+
+DELETE http://localhost:5000/notes/1
