@@ -11,10 +11,8 @@ dotenv.config();
 
 app.use(cookieParser());
 app.use(cors({
-    credentials:true,
-    origin:'https://frontend-notes-176-dot-xenon-axe-450704-n3.uc.r.appspot.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'https://frontend-notes-176-dot-xenon-axe-450704-n3.uc.r.appspot.com',
+  credentials: true,
 }));
 app.use(express.json());
 app.get("/", (req, res) => res.render("index"));

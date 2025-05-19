@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BASE_URL } from "../utils";
 
 const instance = axios.create({
-  baseURL: "https://backendnotes-176-559917148272.us-central1.run.app",
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 

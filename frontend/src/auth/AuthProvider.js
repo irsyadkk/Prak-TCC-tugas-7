@@ -18,8 +18,11 @@ export const AuthProvider = ({ children }) => {
       Cookies.set("refreshToken", res.data.refreshToken, {
         secure: true,
         sameSite: "None",
+        path: "/",
+        domain: "frontend-notes-176-dot-xenon-axe-450704-n3.uc.r.appspot.com",
         expires: 5,
       });
+
 
       return true;
     } catch (err) {
